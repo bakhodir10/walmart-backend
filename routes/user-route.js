@@ -16,4 +16,11 @@ router.delete('/:id', userService.delete);
 
 /* UPDATE a user. */
 router.put('/:id', userService.update);
+
+/* CREATE user's new liked product. */
+router.put('/:user_id/like', userService.createNewLikedProduct);
+
+/* DELETE user's liked product. */
+router.put('/:user_id/dislike/:product_id', userService.deleteLikedProduct);
+
 module.exports = router;
