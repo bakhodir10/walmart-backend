@@ -1,11 +1,13 @@
 
+var nodemailer = require('nodemailer');
+
 // grab the user model
 var User = require('./user.model');
 var userService = {};
 
 // get list of user
 userService.list = (req, res) => {
-  User.find({quantity: {$ne: 0}}).exec((err, users) => {
+  User.find({}).exec((err, users) => {
     if(err) throw err;
     res.json(users);
   });
@@ -13,13 +15,11 @@ userService.list = (req, res) => {
 
 // save a user
 userService.save = (req, res) => {
-  console.log('hi');
   var user  = new User();
   user.name = req.body.name;
   user.email = req.body.email;
   user.password = req.body.password;
   user.role = req.body.role;
-  console.log(user);
   user.save(err => {
     if(err) throw err;
     res.json({ message: 'User added successfully!', data: user });
@@ -28,7 +28,7 @@ userService.save = (req, res) => {
 
 // get a user with id
 userService.findOne = (req, res) => {
-  User.findOne({_id: req.params.id, quantity: {$ne: 0}}).exec((err, user) => {
+  User.findOne({_id: req.params.id}).exec((err, user) => {
     if(err) throw err;
     res.json(user);
   });
@@ -76,6 +76,58 @@ userService.deleteLikedProduct = (req, res) => {
   User.findByIdAndUpdate(req.params.user_id, query, (err, updatedUser) => {
     if(err) throw err;
     res.json(req.body);
+  });
+};
+
+userService.sendNotification = (req, res) => {
+
+  User.find({role: 'customer'}, {_id: 0, email: 1}).exec((err, res) => {
+    if(err) throw err;
+    let emails = '';
+    for(let item of res){
+      emails += item.email + ', ';
+    }
+    emails = emails.substring(0, emails.length - 2);
+    console.log(emails);
+    sendEmail(emails);
+  });
+  res.json('res');
+};
+
+sendEmail = (whom) => {
+
+// Create a SMTP transport object
+var transport = nodemailer.createTransport("SMTP", {
+  service: 'Gmail',
+  auth: {
+      user: "bahodir9293@gmail.com",
+      pass: "3009394ba"
+  }
+});
+
+console.log('SMTP Configured');
+
+// Message object
+var message = {
+
+  from: 'Walmart Customer Service <bahodir9293@gmail.com>',
+  to: '<bakhodir1001@gmail.com>',
+  subject: 'Hurry!!!. There is a discount in here Walmart', 
+  text: 'Hello, customer!',
+  html:`
+    <p>We would like let you know that there is a discount. Please visit our website and check it out!</p>
+    <p> All the best! </p>
+  `
+};
+
+console.log('Sending Mail');
+transport.sendMail(message, function(error){
+  if(error){
+    console.log('Error occured');
+    console.log(error.message);
+    return;
+  }
+    console.log('Message sent successfully!');
   });
 };
 

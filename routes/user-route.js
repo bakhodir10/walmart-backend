@@ -8,6 +8,9 @@ router.get('/', userService.list);
 /* POST a user. */
 router.post('/', userService.save);
 
+/* SEND notification to customers*/
+router.get('/notify', userService.sendNotification);
+
 /* GET a user. */
 router.get('/:id', userService.findOne);
 

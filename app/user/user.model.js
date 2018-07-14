@@ -9,7 +9,7 @@ var userSchema = new Schema({
   password: { type: String, required: true },
   role: {type: String, required: true},
   likes:[
-      {product_name: String, price: Number,experid_date: Date, rate: Number, quantity: Number}
+      {product_id: Number, product_name: String, price: Number,experid_date: Date, rate: Number}
   ]
 });
 
