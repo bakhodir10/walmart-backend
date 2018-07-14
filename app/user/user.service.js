@@ -25,7 +25,7 @@ userService.save = (req, res) => {
   });
 };
 
-// get a user
+// get a user with id
 userService.findOne = (req, res) => {
   User.findOne({_id: req.params.id}).exec((err, user) => {
     if(err) throw err;
