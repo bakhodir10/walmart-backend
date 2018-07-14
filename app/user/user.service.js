@@ -13,12 +13,13 @@ userService.list = (req, res) => {
 
 // save a user
 userService.save = (req, res) => {
+  console.log('hi');
   var user  = new User();
   user.name = req.body.name;
   user.email = req.body.email;
   user.password = req.body.password;
   user.role = req.body.role;
-  user.likes = req.body.likes;
+  console.log(user);
   user.save(err => {
     if(err) throw err;
     res.json({ message: 'User added successfully!', data: user });
