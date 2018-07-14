@@ -111,7 +111,7 @@ console.log('SMTP Configured');
 var message = {
 
   from: 'Walmart Customer Service <bahodir9293@gmail.com>',
-  to: '<bakhodir1001@gmail.com>',
+  to: whom,
   subject: 'Hurry!!!. There is a discount in here Walmart', 
   text: 'Hello, customer!',
   html:`
