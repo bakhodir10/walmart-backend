@@ -41,8 +41,8 @@ userService.delete = (req, res) => {
   });
 };
 
+// update a user with id
 userService.update = (req, res) => {
-  console.log('came to service');
   const query = {$set:{}};
   if(req.body.name) query.$set.name = req.body.name;
   if(req.body.email) query.$set.email = req.body.email;
