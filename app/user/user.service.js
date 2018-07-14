@@ -6,15 +6,13 @@ var userService = {};
 // get list of user
 userService.list = (req, res) => {
   User.find({}).exec((err, users) => {
-    // console.log(users);
     if(err) throw err;
-    return users;
+    res.json(users);
   });
 };
 
 // save a user
 userService.save = (req, res) => {
-  console.log(req.body);
   var user  = new User();
   user.name = req.body.name;
   user.email = req.body.email;
@@ -23,9 +21,37 @@ userService.save = (req, res) => {
   user.likes = req.body.likes;
   user.save(err => {
     if(err) throw err;
-    return user;
+    res.json({ message: 'User added successfully!', data: user });
   });
 };
 
+// get a user
+userService.findOne = (req, res) => {
+  User.findOne({_id: req.params.id}).exec((err, user) => {
+    if(err) throw err;
+    res.json(user);
+  });
+};
+
+// remove a user with id
+userService.delete = (req, res) => {
+  User.findByIdAndRemove({_id: req.params.id}, (err) => {
+    if(err) throw err;
+    res.json('the user deleted successfully...!');
+  });
+};
+
+userService.update = (req, res) => {
+  console.log('came to service');
+  const query = {$set:{}};
+  if(req.body.name) query.$set.name = req.body.name;
+  if(req.body.email) query.$set.email = req.body.email;
+  if(req.body.password) query.$set.password = req.body.password;
+  if(req.body.role) query.$set.role = req.body.role;
+  User.findByIdAndUpdate(req.params.id, query, {new: false}, (err, updatedUser) => {
+    if(err) throw err;
+    res.json(req.body);
+  });
+};
 
 module.exports = userService;

@@ -3,16 +3,17 @@ var router = express.Router();
 var userService = require('../app/user/user.service');
 
 /* GET users listing. */
-router.get('/', (req, res, next) => {
-    var result = userService.list(req, res);
-    console.log(result);
-    res.json(result);
-});
+router.get('/', userService.list);
 
-///* POST a user data. */
-router.post('/', (req, res, next) => {
-    var user = userService.save(req, res);
-    res.json({ message: 'User added successfully!', data: user });
-});
+/* POST a user. */
+router.post('/', userService.save);
 
+/* GET a user. */
+router.get('/:id', userService.findOne);
+
+/* DELETE a user. */
+router.delete('/:id', userService.delete);
+
+/* UPDATE a user. */
+router.put('/:id', userService.update);
 module.exports = router;

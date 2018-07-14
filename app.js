@@ -1,4 +1,5 @@
 var createError = require('http-errors');
+var cors = require('cors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -8,8 +9,6 @@ var indexRouter = require('./routes/index-route');
 var usersRouter = require('./routes/user-route');
 var dbConfig = require('./db.config');
 const port = 3000;
-const basePath = '/app';
-const version = '/v1';
 var app = express();
 
 // view engine setup
@@ -20,7 +19,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 app.use('/', indexRouter);
 app.use(`/users`, usersRouter);
