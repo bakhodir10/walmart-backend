@@ -9,7 +9,6 @@ var userService = {};
 userService.list = (req, res) => {
   User.find({}).exec((err, users) => {
     if(err) throw err;
-    console.log(users);
     res.json(users);
   });
 };

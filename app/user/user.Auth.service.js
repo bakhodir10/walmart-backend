@@ -6,17 +6,16 @@ var User = require('./user.model');
 var userAuthService = {};
 
 userAuthService.checkForToken=(req,res,next)=>{
-    const beareHeader = req.headers['authorization'];
 
-    if(typeof bearerHeader !== 'undefined'){
+    const beareHeader = req.headers['authorization'];
+    if(typeof bearerHeader !== undefined){
         //Split at the space
-        const bearer = beareHeader.split(' ');
+        const bearer = beareHeader.split(" ");
         // Get token from array
-        const beareToken =beare[1];
+        const beareToken = bearer[1];
         //set the token
-        req.token = bearerToken;
+        req.token = beareToken;
         //next middleware
-        console.log(req.token);
         next();
     }else{
         res.sendStatus(403);
@@ -29,30 +28,33 @@ userAuthService.verifyToken=(req,res,next)=>{
         if(err){
             res.sendStatus(403);
         }else{
-            // res.json({
-            //     message:'Post creatd...',
-            //     authData
-            // });
             next();
         }
     })
 }
 
-userAuthService.login = (req,res) => {
+userAuthService.login = (req, res) => {
+    // const user = {
+    //     "email": "abiel@gmail.com",
+    //     "password":"hi"
+    // };
+    // console.log("hi");
     const user = {};
-    console.log("hi");
     console.log(req.body);
-    User.findOne({email: req.body.email,password: req.body.password}).exec((err, data) => {
+    User.findOne({email: req.body.email, password: req.body.password}).exec((err, data) => {
+        
         // console.log(data);
         if(err) throw err;
-        user.name=data.name;
-        user.email=data.email;
-        user.role=data.role;
-      });
-      jwt.sign({user},'secretkey',(err,token)=>{
-        res.json({
-            token
-        });
+        
+        // user.name=data.name;
+        // user.email=data.email;
+        // user.role=data.role;
+        
+        jwt.sign({user},'secretkey',(err,token)=>{
+            res.json({
+                token
+            });
+        });  
     });
 }
 
