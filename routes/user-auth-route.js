@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var userAuthService = require('../app/user/user.auth.service');
+var userAuthService = require('../app/user/user.Auth.service');
 
 
 /* GET users listing. */
