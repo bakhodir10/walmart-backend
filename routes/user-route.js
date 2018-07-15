@@ -4,8 +4,7 @@ var userService = require('../app/user/user.service');
 var userAuthService = require('../app/user/user.Auth.service');
 
 /* GET users listing. */
-router.get('/', userAuthService.checkForToken, userAuthService.verifyToken,
-              userService.list);
+router.get('/', userAuthService.checkForToken, userAuthService.verifyToken,userService.list);
 
 /* POST a user. */
 router.post('/', userService.save);

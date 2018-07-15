@@ -24,7 +24,7 @@ userAuthService.checkForToken=(req,res,next)=>{
 
 userAuthService.verifyToken=(req,res,next)=>{
     jwt.verify(req.token,'secretkey',(err,authData)=>{
-        console.log(authData);
+       
         if(err){
             res.sendStatus(403);
         }else{
@@ -34,21 +34,17 @@ userAuthService.verifyToken=(req,res,next)=>{
 }
 
 userAuthService.login = (req, res) => {
-    // const user = {
-    //     "email": "abiel@gmail.com",
-    //     "password":"hi"
-    // };
-    // console.log("hi");
+   
     const user = {};
     console.log(req.body);
     User.findOne({email: req.body.email, password: req.body.password}).exec((err, data) => {
-        
-        // console.log(data);
-        if(err) throw err;
-        
-        // user.name=data.name;
-        // user.email=data.email;
-        // user.role=data.role;
+
+        if(err) {
+            res.sendStatus(403);
+        }
+        user.name=data.name;
+        user.email=data.email;
+        user.role=data.role;
         
         jwt.sign({user},'secretkey',(err,token)=>{
             res.json({
