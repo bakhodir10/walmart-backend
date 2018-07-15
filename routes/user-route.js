@@ -1,12 +1,15 @@
 var express = require('express');
 var router = express.Router();
 var userService = require('../app/user/user.service');
+var userAuthService = require('../app/user/user.Auth.service');
 
 /* GET users listing. */
-router.get('/', userService.list);
+router.get('/', userAuthService.checkForToken,
+              userService.list);
 
 /* POST a user. */
 router.post('/', userService.save);
+
 
 /* SEND notification to customers*/
 router.get('/notify', userService.sendNotification);
