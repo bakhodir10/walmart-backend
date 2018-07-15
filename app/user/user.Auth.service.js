@@ -46,7 +46,7 @@ userAuthService.login = (req, res) => {
         user.email=data.email;
         user.role=data.role;
         
-        jwt.sign({user},'secretkey',(err,token)=>{
+        jwt.sign({user:user},'secretkey',{expiresIn: '1h'},(err,token)=>{
             res.json({
                 token
             });
@@ -54,8 +54,22 @@ userAuthService.login = (req, res) => {
     });
 }
 
+userAuthService.logout = (req, res) => {
+   
+        req.token=null;
+        res.json("ok");  
+    }
+
+
 userAuthService.hasRole = function(req, res, next){
-    // next();
+
+    jwt.verify(req.token,'secretkey',(err,decoded)=>{
+        // if(err) res.json(403);
+        if(req.x === decoded.user.role) next();
+        res.json(403);
+       console.log(req.x+"   "+decoded.user.role);
+       
+    });
 }
 
 module.exports = userAuthService;
