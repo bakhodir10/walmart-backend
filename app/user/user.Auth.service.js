@@ -8,6 +8,7 @@ var userAuthService = {};
 userAuthService.checkForToken=(req,res,next)=>{
 
     const beareHeader = req.headers['authorization'];
+    console.log(beareHeader);
     if(typeof bearerHeader !== undefined){
         //Split at the space
         const bearer = beareHeader.split(" ");
@@ -55,7 +56,7 @@ userAuthService.login = (req, res) => {
 }
 
 userAuthService.logout = (req, res) => {
-   
+    
         req.token=null;
         res.json("ok");  
     }
