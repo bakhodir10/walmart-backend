@@ -17,13 +17,11 @@ userService.list = (req, res) => {
 // save a user
 userService.save = (req, res) => {
 
-  console.log(req.body);
   var user  = new User();
   user.name = req.body.name;
   user.email = req.body.email;
   user.password = req.body.password;
   user.role = req.body.role;
-  console.log(user);
   user.save(err => {
     if(err) throw err;
     res.json({ message: 'User added successfully!', data: user });
@@ -48,12 +46,7 @@ userService.delete = (req, res) => {
 
 // update a user with id
 userService.update = (req, res) => {
-  const query = {$set:{}};
-  if(req.body.name) query.$set.name = req.body.name;
-  if(req.body.email) query.$set.email = req.body.email;
-  if(req.body.password) query.$set.password = req.body.password;
-  if(req.body.role) query.$set.role = req.body.role;
-  User.findByIdAndUpdate(req.params.user_id, query, {new: false}, (err, updatedUser) => {
+  User.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedUser) => {
     if(err) throw err;
     res.json(req.body);
   });
@@ -61,14 +54,7 @@ userService.update = (req, res) => {
 
 // create a new liked product
 userService.createNewLikedProduct = (req, res) => {
-  const query = {$push: {likes: {}}};
-  query.$push.likes.product_name = req.body.product_name;
-  query.$push.likes.price = req.body.price;
-  query.$push.likes.expired_date = req.body.expired_date;
-  query.$push.likes.rate = req.body.rate;
-  query.$push.likes.quantity = req.body.quantity;
-
-  User.findByIdAndUpdate(req.params.user_id, query, (err, updatedUser) => {
+  User.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedUser) => {
     if(err) throw err;
     res.json(req.body);
   });
