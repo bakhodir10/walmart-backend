@@ -7,7 +7,8 @@ var productSchema = new Schema({
   name: { type: String, required: true, unique: true },
   price: { type: String, required: true},
   expire_date: { type: Date, required: true },
-  quantity: {type: Number},
+  quantity: Number,
+  rate:Number,
   feedback:[
       {user_id: String, rate: Number, comment: String, comment_date: Date}
   ]

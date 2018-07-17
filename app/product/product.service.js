@@ -5,7 +5,7 @@ var productService = {};
 
 // get list of user
 productService.list = (req, res) => {
-    Product.find({role: 'employee'}).exec((err, products) => {
+    Product.find({}).exec((err, products) => {
     if(err) throw err;
     console.log(products);
     res.json(products);
@@ -20,6 +20,7 @@ productService.save = (req, res) => {
   product.price = req.body.price;
   product.expire_date = req.body.expire_date;
   product.quantity = req.body.quantity;
+  product.rate = 0;
   product.save(err => {
     if(err) throw err;
     res.json({ message: 'product added successfully!', data: product });
