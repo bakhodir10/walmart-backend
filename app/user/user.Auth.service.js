@@ -63,12 +63,16 @@ userAuthService.logout = (req, res) => {
 
 
 userAuthService.hasRole = function(req, res, next){
-
+    y:boolean=false;
     jwt.verify(req.token,'secretkey',(err,decoded)=>{
-        // if(err) res.json(403);
-        if(req.x === decoded.user.role) next();
-        res.json(403);
-       console.log(req.x+"   "+decoded.user.role);
+        for(let i=0;i<req.x.length;i++){
+            if(req.x[i] === decoded.user.role)
+                this.y=true;
+        }
+
+        if(this.y){
+            next();
+        }else res.json(403);
        
     });
 }
