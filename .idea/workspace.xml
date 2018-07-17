@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="703c3388-325b-4433-b5c5-a9ca7425b4a3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/auth/auth.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/product-route.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/product-route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/user-auth-route.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user-auth-route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/user-route.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user-route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/user/user.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/user.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/user-auth-route.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth-route.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,8 +22,59 @@
       <file leaf-file-name="auth.service.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/auth/auth.service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+            <state relative-caret-position="119">
+              <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="product.service.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/product/product.service.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index-route.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/index-route.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="product-route.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/product-route.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="auth-route.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/auth-route.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="user-route.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/user-route.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="product.model.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/product/product.model.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.model.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/user/user.model.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="56" lean-forward="true" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -32,8 +82,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="38" lean-forward="true" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+            <state relative-caret-position="289">
+              <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -54,6 +104,7 @@
         <option value="$PROJECT_DIR$/app/user/user.Auth.service.js" />
         <option value="$PROJECT_DIR$/app/user/auth.service.js" />
         <option value="$PROJECT_DIR$/app/auth/auth.service.js" />
+        <option value="$PROJECT_DIR$/app/user/user.model.js" />
       </list>
     </option>
   </component>
@@ -101,12 +152,6 @@
               <item name="walmart-backend" type="b2602c69:ProjectViewProjectNode" />
               <item name="walmart-backend" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="walmart-backend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="walmart-backend" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="product" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -114,6 +159,11 @@
               <item name="walmart-backend" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="walmart-backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="walmart-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -155,12 +205,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1531796157465</updated>
-      <workItem from="1531796159700" duration="713000" />
+      <workItem from="1531796159700" duration="2786000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="713000" />
+    <option name="totallyTimeSpent" value="2786000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="59" y="25" width="1307" height="743" extended-state="6" />
@@ -172,10 +222,10 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" weight="0.3295082" />
+      <window_info anchor="bottom" id="Version Control" weight="0.23114754" />
       <window_info id="npm" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.27377048" />
+      <window_info anchor="bottom" id="Terminal" weight="0.27377048" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -195,15 +245,52 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/auth/auth.service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+        <state relative-caret-position="119">
+          <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/product/product.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/user/user.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="56" lean-forward="true" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/product/product.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index-route.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/product-route.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/user-route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/auth-route.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="38" lean-forward="true" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+        <state relative-caret-position="289">
+          <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
         </state>
       </provider>
     </entry>

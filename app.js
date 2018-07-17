@@ -7,7 +7,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index-route');
 var usersRouter = require('./routes/user-route');
-var usersAuthRouter = require('./routes/user-auth-route');
+var usersAuthRouter = require('./routes/auth-route');
 var productRouter = require('./routes/product-route');
 var dbConfig = require('./db.config');
 const port = 3000;
