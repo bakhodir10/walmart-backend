@@ -11,20 +11,21 @@ productService.list = (req, res) => {
   });
 };
 
-// save a user
+// save a product
 productService.save = (req, res) => {
+  
   var product  = new Product();
   product.name = req.body.name;
-  product.email = req.body.email;
-  product.password = req.body.password;
-  product.role = req.body.role;
+  product.price = req.body.price;
+  product.expire_date = req.body.expire_date;
+  product.quantity = req.body.quantity;
   product.save(err => {
     if(err) throw err;
     res.json({ message: 'product added successfully!', data: product });
   });
 };
 
-// get a user with id
+// get a product with id
 productService.findOne = (req, res) => {
     Product.findOne({_id: req.params.id}).exec((err, product) => {
     if(err) throw err;
