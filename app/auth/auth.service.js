@@ -8,7 +8,7 @@ var authService = {};
 authService.checkForToken=(req, res, next)=>{
 
     const beareHeader = req.headers['authorization'];
-    console.log(beareHeader);
+    // console.log(beareHeader);
     if(typeof bearerHeader !== undefined){
         //Split at the space
         const bearer = beareHeader.split(" ");
@@ -37,7 +37,7 @@ authService.verifyToken=(req, res, next)=>{
 authService.login = (req, res) => {
    
     const user = {};
-    console.log(req.body);
+    // console.log(req.body);
     User.findOne({email: req.body.email, password: req.body.password}).exec((err, data) => {
 
         if(err) {

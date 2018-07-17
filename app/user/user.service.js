@@ -7,8 +7,9 @@ var userService = {};
 
 // get list of user
 userService.list = (req, res) => {
-  User.find({}).exec((err, users) => {
+  User.find({$or: [{role: 'employee'}, {role: 'manager'}]}).exec((err, users) => {
     if(err) throw err;
+    // console.log(users);
     res.json(users);
   });
 };

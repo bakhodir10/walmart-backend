@@ -5,8 +5,9 @@ var productService = {};
 
 // get list of user
 productService.list = (req, res) => {
-    Product.find({}).exec((err, products) => {
+    Product.find({role: 'employee'}).exec((err, products) => {
     if(err) throw err;
+    console.log(products);
     res.json(products);
   });
 };
