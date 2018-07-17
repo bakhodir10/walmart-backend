@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var userService = require('../app/user/user.service');
-var userAuthService = require('../app/user/user.Auth.service');
+var userAuthService = require('../app/auth/auth.service');
 
 /* GET users listing. */
 router.get('/', userAuthService.checkForToken, userAuthService.verifyToken,(req,res,next)=>{req.x=['manager'];next();},

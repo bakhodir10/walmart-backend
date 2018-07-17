@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var productService = require('../app/product/product.service');
-var userAuthService = require('../app/user/user.Auth.service');
+var userAuthService = require('../app/auth/auth.service');
 
 /* GET users listing. */
 router.get('/', userAuthService.checkForToken, userAuthService.verifyToken,productService.list);

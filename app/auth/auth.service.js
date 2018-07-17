@@ -2,10 +2,10 @@ var nodemailer = require('nodemailer');
 const jwt= require('jsonwebtoken');
 
 // grab the user model
-var User = require('./user.model');
-var userAuthService = {};
+var User = require('../user/user.model');
+var authService = {};
 
-userAuthService.checkForToken=(req,res,next)=>{
+authService.checkForToken=(req, res, next)=>{
 
     const beareHeader = req.headers['authorization'];
     console.log(beareHeader);
@@ -23,7 +23,7 @@ userAuthService.checkForToken=(req,res,next)=>{
     }
 }
 
-userAuthService.verifyToken=(req,res,next)=>{
+authService.verifyToken=(req, res, next)=>{
     jwt.verify(req.token,'secretkey',(err,authData)=>{
        
         if(err){
@@ -34,7 +34,7 @@ userAuthService.verifyToken=(req,res,next)=>{
     })
 }
 
-userAuthService.login = (req, res) => {
+authService.login = (req, res) => {
    
     const user = {};
     console.log(req.body);
@@ -55,14 +55,14 @@ userAuthService.login = (req, res) => {
     });
 }
 
-userAuthService.logout = (req, res) => {
+authService.logout = (req, res) => {
     
         req.token=null;
         res.json("ok");  
     }
 
 
-userAuthService.hasRole = function(req, res, next){
+authService.hasRole = function(req, res, next){
     y:boolean=false;
     jwt.verify(req.token,'secretkey',(err,decoded)=>{
         for(let i=0;i<req.x.length;i++){
@@ -77,4 +77,4 @@ userAuthService.hasRole = function(req, res, next){
     });
 }
 
-module.exports = userAuthService;
+module.exports = authService;
