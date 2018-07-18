@@ -24,7 +24,7 @@ userService.save = (req, res) => {
   user.role = req.body.role;
   user.save(err => {
     if(err) throw err;
-    res.json({ message: 'User added successfully!', data: user });
+    res.json(user);
   });
 };
 
@@ -44,8 +44,10 @@ userService.delete = (req, res) => {
   });
 };
 
+
 // update a user with id
 userService.update = (req, res) => {
+  console.log('update');
   User.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedUser) => {
     if(err) throw err;
     res.json(req.body);
