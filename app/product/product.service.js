@@ -47,13 +47,29 @@ productService.delete = (req, res) => {
 productService.update = (req, res) => {
   const query = {$set:{}};
   if(req.body.name) query.$set.name = req.body.name;
-  if(req.body.email) query.$set.email = req.body.email;
-  if(req.body.password) query.$set.password = req.body.password;
-  if(req.body.role) query.$set.role = req.body.role;
+  if(req.body.price) query.$set.price = req.body.price;
+  if(req.body.quantity) query.$set.quantity = req.body.quantity;
+  if(req.body.rate) query.$set.rate= req.body.rate;
   Product.findByIdAndUpdate(req.params.user_id, query, {new: false}, (err, product) => {
     if(err) throw err;
     res.json(req.body);
   });
 };
+
+productService.addfeedback = (req, res) => {
+  // product.friends.push(req.body);
+  // product.save(done);
+  console.log("hiiii");
+  console.log(req.body);
+   const query = {$push:{feedback:req.body}};
+  
+   Product.findByIdAndUpdate(req.params.id,query,(err,product)=>{
+  if(err) res.json(403);
+  res.json(req.body);
+});
+};
+
+
+
 
 module.exports = productService;

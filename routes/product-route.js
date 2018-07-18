@@ -4,7 +4,7 @@ var productService = require('../app/product/product.service');
 var userAuthService = require('../app/auth/auth.service');
 
 /* GET users listing. */
-router.get('/', userAuthService.checkForToken, userAuthService.verifyToken,productService.list);
+router.get('/',productService.list);
 
 /* POST a user. */
 router.post('/', userAuthService.checkForToken, userAuthService.verifyToken,(req,res,next)=>{req.x=['manager','employee'];next();},
@@ -20,5 +20,7 @@ userAuthService.hasRole, productService.delete);
 /* UPDATE a user. */
 router.put('/:id', userAuthService.checkForToken, userAuthService.verifyToken,(req,res,next)=>{req.x=['manager','employee'];next();},
 userAuthService.hasRole, productService.update);
+
+router.post('/:id/feedback', productService.addfeedback);
 
 module.exports = router;
