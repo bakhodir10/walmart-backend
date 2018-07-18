@@ -39,11 +39,12 @@ authService.login = (req, res) => {
     const user = {};
     // console.log(req.body);
     User.findOne({email: req.body.email, password: req.body.password}).exec((err, data) => {
-
-        if(err) {
-            res.sendStatus(403);
+        console.log(data);
+        if(err || data == null) {
+            res.sendStatus(500);
         }
-        user.name=data.name;
+        else {
+            user.name=data.name;
         user.email=data.email;
         user.role=data.role;
         
@@ -51,7 +52,8 @@ authService.login = (req, res) => {
             res.json({
                 token
             });
-        });  
+         });  
+        }
     });
 }
 
